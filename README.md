@@ -17,7 +17,7 @@ to the right of `+` together."
 
 As you read through this lesson, you're going to be adding your solutions to
 `index.js`. You'll write a total of eight functions; use the results of running
-`learn test` in your IDE to guide you towards the right function names and
+`npm test` in your IDE to guide you towards the right function names and
 functionality.
 
 ## Basic Math
@@ -27,11 +27,11 @@ adds two numbers; `-` subtracts one number from another; `*` multiplies two
 numbers; and `/` divides one number by another. For example (as usual, follow
 along in console!)
 
-``` javascript
-1 + 80 // 81
-60 - 40 // 20
-2 * 3.4 // 6.8 (there's that floating-point arithmetic again...)
-5.0 / 2.5 // 2
+```javascript
+1 + 80; // 81
+60 - 40; // 20
+2 * 3.4; // 6.8 (there's that floating-point arithmetic again...)
+5.0 / 2.5; // 2
 ```
 
 At this point, we can fix the first _four_ failing tests: we can define
@@ -42,24 +42,24 @@ functions `add()`, `subtract()`, `multiply()`, `divide()` in `index.js`.
 Additionally, we can increment (`++`) and decrement (`--`) a number if it's
 assigned to a variable:
 
-``` javascript
-var number = 5
+```javascript
+var number = 5;
 
-number++ // 5... hmmmm
+number++; // 5... hmmmm
 
-number // 6 -- the number was incremented after it was evaluated
+number; // 6 -- the number was incremented after it was evaluated
 
-number-- // 6
+number--; // 6
 
-number // 5
+number; // 5
 ```
 
 We can also put the incrementor and decrementor operations before the number:
 
-``` javascript
---number // 4
+```javascript
+--number; // 4
 
-++number // 5
+++number; // 5
 ```
 
 But generally, you will see them placed _after_ the number (and we recommend
@@ -77,28 +77,28 @@ that `number` is equal to `5` (and resets for every example).
   the operator's right:
 
 ```javascript
-number += 3 // 8
+number += 3; // 8
 ```
 
 - `-=` modifies the value to the operator's left by subtracting from it the
   value to the operator's right:
 
-``` javascript
-number -= 2 // 3
+```javascript
+number -= 2; // 3
 ```
 
 - `*=` modifies the value to the operator's left by multiplying it by the value
   to the operator's right:
 
-``` javascript
-number *= 10 // 50
+```javascript
+number *= 10; // 50
 ```
 
 - `/=` modifies the value to the operator's left by dividing it by the value to
   the operator's right:
 
-``` javascript
-number /= 5 // 1
+```javascript
+number /= 5; // 1
 ```
 
 The thing to remember about these methods is that they modify the variable in
@@ -106,35 +106,35 @@ place. So, if we have two functions that depend on the same external variable,
 the order in which they are called matters. Follow along in console copying each
 function and statement below one at a time:
 
-``` javascript
-var number = 10
+```javascript
+var number = 10;
 
 function add5() {
-  number += 5
+  number += 5;
 }
 
 function divideBy3() {
-  number /= 3
+  number /= 3;
 }
 
-divideBy3()
+divideBy3();
 
-console.log(number) // 3.333333333335
+console.log(number); // 3.333333333335
 
-add5()
+add5();
 
-console.log(number) // 8.333333333335
+console.log(number); // 8.333333333335
 
 // reset number
-number = 10
+number = 10;
 
-add5()
+add5();
 
-console.log(number) // 15
+console.log(number); // 15
 
-divideBy3()
+divideBy3();
 
-console.log(number) // 5
+console.log(number); // 5
 ```
 
 **Because these methods are more explicit, we prefer `+=` to `++` and `-=` to `--` (usually).**
@@ -159,15 +159,15 @@ The first such tool is the function `parseInt()`, which accepts two arguments:
 the value to parse and the base of the value being parsed. _Usually_ you will
 want to work with base 10, so a typical call to `parseInt()` looks like
 
-``` javascript
-parseInt('2', 10) // 2
+```javascript
+parseInt("2", 10); // 2
 ```
 
 What happens if we pass a representation of a non-integer to `parseInt()`? Let's
 try it:
 
-``` javascript
-parseInt('2.2222', 10)
+```javascript
+parseInt("2.2222", 10);
 ```
 
 If we enter the above in console, we will see that `parseInt()` forces the parsed
@@ -176,8 +176,8 @@ number to be an integer — which makes sense when we think about it, right?
 What happens, though, if we pass utter nonsense to `parseInt()`? Go ahead and
 try it in the console — something like
 
-``` javascript
-parseInt('nonsense!', 10)
+```javascript
+parseInt("nonsense!", 10);
 ```
 
 What did it return? `NaN`? What is that?
@@ -195,8 +195,8 @@ only returns integers. If we want to preserve decimals, we'll need to use
 Unlike `parseInt()`, `parseFloat()` accepts only a single argument, the thing to
 be parsed. We can use it like so:
 
-``` javascript
-parseFloat('80.123999') // 80.123999
+```javascript
+parseFloat("80.123999"); // 80.123999
 ```
 
 You're now ready to solve the final two tests in this lab, `makeInt(string)` and
